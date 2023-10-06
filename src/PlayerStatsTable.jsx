@@ -172,8 +172,8 @@ const PlayerStatsTable = ({ playerName, playerStats }) => {
             </table>
 
             {savedRows.length >= 1 && (
-                <div>
-                    <h2>Saved Players</h2>
+                <div className='secondTable'>
+                    <h1 style={{fontSize:'40px', paddingBottom:'25px'}}>Saved Players</h1>
                     <table>
                         <thead>
                             <tr>

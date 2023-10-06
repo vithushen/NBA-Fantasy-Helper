@@ -159,3 +159,7 @@
 .redCell {
     background-color: red; /* Set the background color for games played below 40 */
 }
+
+.secondTable{
+  margin-top: 50px;
+}
