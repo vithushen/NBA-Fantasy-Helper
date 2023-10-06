@@ -132,7 +132,7 @@
     background-color: rgb(21, 248, 21);
     border-radius: 5px;
     font-size: 15px;
-    border: none;
+    border-color: rgb(0, 55, 0);
     width: 75px;
     height: 30px;
     cursor: pointer;
@@ -140,10 +140,22 @@
 
   .deleteButton{
     background-color: rgb(255, 16, 16);
+    border-color: rgb(129, 0, 0);
     border-radius: 5px;
     font-size: 15px;
-    border: none;
     width: 75px;
     height: 30px;
     cursor: pointer;
-  }
+  } 
+
+  .greenCell {
+    background-color: green; /* Set the background color for games played over 70 */
+}
+
+.yellowCell {
+    background-color: yellow; /* Set the background color for games played between 40 and 70 */
+}
+
+.redCell {
+    background-color: red; /* Set the background color for games played below 40 */
+}
