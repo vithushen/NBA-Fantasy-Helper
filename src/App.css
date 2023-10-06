@@ -1,6 +1,35 @@
+.background-container {
+  background: linear-gradient(to bottom, orange, white);
+  height: 100vh;
+}
+
 .App {
     text-align: center;
-    margin-top: 50px;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.3); /* Transparent background color */
+    padding: 10px 20px;
+  }
+  
+  .left-side {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    color:white;
+    font-family: 'Young Serif', serif;
+  }
+  
+  .right-side .nav-link {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 50px; /* Add a right margin for spacing */
+    color: #fff; /* Text color for links */
+    text-decoration: none;
+    font-family: 'Young Serif', serif;
   }
   
   input {
@@ -8,8 +37,113 @@
     margin: 10px;
   }
   
-  button {
-    padding: 10px 20px;
+  .nba-helper-box {
+    margin-top: 100px;
+  } 
+
+  .nba-button {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 30px;
     cursor: pointer;
+    font-family: 'Young Serif', serif;
+    background-color: orange !important;
+    border-radius: 10px;
+    font-size: 14px;
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease; 
   }
   
+  .nba-button::before {
+    content: "";
+    position: absolute;
+    background: radial-gradient(circle, rgba(255, 165, 0, 0.5) 0%, transparent 70%);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    opacity: 0;
+    transform: scale(1);
+    z-index: -1;
+    transition: all 0.3s ease;
+  }
+  
+  .nba-button:hover::before {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  
+  /* Styles for the active state (when the button is clicked) */
+  .nba-button:active {
+    outline: 2px solid #ffcc00; 
+  }
+  
+
+  .input{
+    border-radius: 10px;
+    height: 25px;
+    width: 250px;
+    border: none;
+  }
+
+
+  .player-stats-table {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    width: 1500px;
+    margin-top: 30px;
+  }
+  
+  .player-stats-table h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .player-stats-table h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    border: 1px solid orange;
+  }
+  
+  th {
+    background-color: orange;
+  }
+  
+
+  tr:hover {
+    background-color: white;
+  } 
+
+  .row1 {
+    width:200px
+  } 
+
+  .saveButton{
+    background-color: rgb(21, 248, 21);
+    border-radius: 5px;
+    font-size: 15px;
+    border: none;
+    width: 75px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .deleteButton{
+    background-color: rgb(255, 16, 16);
+    border-radius: 5px;
+    font-size: 15px;
+    border: none;
+    width: 75px;
+    height: 30px;
+    cursor: pointer;
+  }
