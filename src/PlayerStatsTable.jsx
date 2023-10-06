@@ -20,8 +20,18 @@ const PlayerStatsTable = ({ playerName, playerStats }) => {
     const [savedRows, setSavedRows] = useState([]);
 
     const handleSave = () => {
-        const newRow = { playerName, ...playerStats };
-        setSavedRows([...savedRows, newRow]);
+        const playerIdentity = `${playerStats.firstName} ${playerStats.lastName}`; // Assuming firstName and lastName together form a unique identifier
+        
+        // Check if the player is already in the savedRows array
+        const isPlayerAlreadySaved = savedRows.some(row => `${row.firstName} ${row.lastName}` === playerIdentity);
+        
+        if (!isPlayerAlreadySaved) {
+            const newRow = { ...playerStats }; // Save all playerStats data
+            setSavedRows([...savedRows, newRow]);
+        } else {
+            // Handle the case where the player is already in the savedRows array (optional)
+            console.log(`Player ${playerIdentity} is already saved.`);
+        }
     };
 
     const handleDelete = (index) => {
@@ -101,9 +111,9 @@ const PlayerStatsTable = ({ playerName, playerStats }) => {
     };
 
     const getTurnoverColorClass = (to) => {
-        if (to <= 2) {
+        if (to <= 2.5) {
             return 'greenCell';
-        } else if (to > 2 && to <= 3) {
+        } else if (to > 2.5 && to <= 3.5) {
             return 'yellowCell';
         } else {
             return 'redCell';
@@ -145,7 +155,7 @@ const PlayerStatsTable = ({ playerName, playerStats }) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td className='row1'>{playerName}</td>
+                        <td className='row1'>{playerStats.firstName} {playerStats.lastName} ({playerStats.teamAbbreviation})</td>
                         <td className={getGamesPlayedColorClass(playerStats.games_played)}>{playerStats.games_played}</td>
                         <td className={getFGColorClass(playerStats.fg_pct)}>{playerStats.fg_pct}</td>
                         <td className={getFTColorClass(playerStats.ft_pct)}>{playerStats.ft_pct}</td>
@@ -175,7 +185,7 @@ const PlayerStatsTable = ({ playerName, playerStats }) => {
                         <tbody>
                             {savedRows.map((row, index) => (
                                 <tr key={index}>
-                                    <td>{row.playerName}</td>
+                                    <td className='row1'>{row.firstName} {row.lastName} ({row.teamAbbreviation})</td>
                                     <td className={getGamesPlayedColorClass(row.games_played)}>{row.games_played}</td>
                                     <td className={getFGColorClass(row.fg_pct)}>{row.fg_pct}</td>
                                     <td className={getFTColorClass(row.ft_pct)}>{row.ft_pct}</td>

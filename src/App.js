@@ -33,7 +33,17 @@ const App = () => {
       // Assuming you want the first player found, you can adjust this logic based on your requirements
       const playerId = playerIdData.data[0].id;
 
-      // Define the season (for example, 2018) and player_ids array
+      // Fetch player details using the player ID
+      const playerDetailsResponse = await fetch(`https://www.balldontlie.io/api/v1/players/${playerId}`);
+      const playerDetailsData = await playerDetailsResponse.json();
+
+      console.log('Player Details Data:', playerDetailsData); // Log player details data
+
+      // Get first name, last name, and team abbreviation from the playerDetailsData
+      const { first_name, last_name } = playerDetailsData;
+      const teamAbbreviation = playerDetailsData.team.abbreviation;
+
+      // Define the season (for example, 2022) and player_ids array
       const season = 2022;
       const playerIds = [playerId];
 
@@ -44,7 +54,8 @@ const App = () => {
         const data = await response.json();
         console.log('Player Stats Data:', data.data); // Log the player stats data array
         if (data.data.length > 0) {
-          setPlayerStats(data.data[0]); // Assuming you want stats for the latest season
+          const playerStatsData = data.data[0];
+          setPlayerStats({ ...playerStatsData, firstName: first_name, lastName: last_name, teamAbbreviation });
         } else {
           console.error('Player stats not available for the selected player in the specified season.');
         }
@@ -56,7 +67,7 @@ const App = () => {
     }
 
     setLoading(false);
-  };
+};
 
   return (
     <div className='background-container'>
