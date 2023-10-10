@@ -10,7 +10,7 @@ NBA Stats Explorer simplifies the process of understanding player performance by
 
 ## Running the Application 
 ### Front-End 
-Step 1: Change directory into blackjack-counter 
+Step 1: Change directory into nba
 cd nba
 
 Step 2: Run application 
