@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/NBA-Fantasy-Helper/static/css/main.89111d88.css",
+    "main.js": "/NBA-Fantasy-Helper/static/js/main.4eef82b8.js",
+    "static/js/787.e49e548c.chunk.js": "/NBA-Fantasy-Helper/static/js/787.e49e548c.chunk.js",
+    "static/media/basketball.png": "/NBA-Fantasy-Helper/static/media/basketball.74b79b2356f72dbe400b.png",
+    "index.html": "/NBA-Fantasy-Helper/index.html",
+    "main.89111d88.css.map": "/NBA-Fantasy-Helper/static/css/main.89111d88.css.map",
+    "main.4eef82b8.js.map": "/NBA-Fantasy-Helper/static/js/main.4eef82b8.js.map",
+    "787.e49e548c.chunk.js.map": "/NBA-Fantasy-Helper/static/js/787.e49e548c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.89111d88.css",
+    "static/js/main.4eef82b8.js"
+  ]
+}
