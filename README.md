@@ -17,4 +17,5 @@ Step 2: Run application
 npm start
 
 ## Website URL 
-https://vithushen.github.io/nba/ 
+https://vithushen.github.io/NBA-Fantasy-Helper/
+
