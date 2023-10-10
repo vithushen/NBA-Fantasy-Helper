@@ -71,7 +71,7 @@ const App = () => {
         console.log('Player Stats Data:', data.data); // Log the player stats data array
         if (data.data.length > 0) {
           const playerStatsData = data.data[0];
-          setPlayerStats({ ...playerStatsData, firstName: first_name, lastName: last_name, teamAbbreviation, season: selectedYear });
+          setPlayerStats({ ...playerStatsData, firstName: first_name, lastName: last_name, teamAbbreviation });
         } else {
           console.error('Player stats not available for the selected player in the specified season.');
         }
@@ -121,7 +121,7 @@ const App = () => {
 
           {loading && <p>Loading...</p>}
 
-          {playerStats && (<PlayerStatsTable playerName={playerName} playerStats={playerStats} selectedYear={selectedYear} onSave={handleSaveRow} />
+          {playerStats && (<PlayerStatsTable playerName={playerName} playerStats={playerStats} onSave={handleSaveRow} />
           )}
 
         </div>

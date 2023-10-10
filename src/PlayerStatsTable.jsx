@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const PlayerStatsTable = ({playerStats, selectedYear }) => {
+const PlayerStatsTable = ({playerName, playerStats }) => {
     const statsHeaders = [
         'Player',
         'Games Played',
@@ -155,9 +155,7 @@ const PlayerStatsTable = ({playerStats, selectedYear }) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td className='row1'>
-                            {playerStats.firstName} {playerStats.lastName} ({playerStats.teamAbbreviation}) <br />
-                        </td>
+                    <td className='row1'>{playerStats.firstName} {playerStats.lastName} ({playerStats.teamAbbreviation})</td>
                         <td className={getGamesPlayedColorClass(playerStats.games_played)}>{playerStats.games_played}</td>
                         <td className={getFGColorClass(playerStats.fg_pct)}>{playerStats.fg_pct}</td>
                         <td className={getFTColorClass(playerStats.ft_pct)}>{playerStats.ft_pct}</td>
@@ -188,7 +186,7 @@ const PlayerStatsTable = ({playerStats, selectedYear }) => {
                             {savedRows.map((row, index) => (
                                 <tr key={index}>
                                     <td className='row1'>
-                                        {playerStats.firstName} {playerStats.lastName} ({playerStats.teamAbbreviation})
+                                        {row.firstName} {row.lastName} ({row.teamAbbreviation})
                                     </td>
                                     <td className={getGamesPlayedColorClass(row.games_played)}>{row.games_played}</td>
                                     <td className={getFGColorClass(row.fg_pct)}>{row.fg_pct}</td>
