@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import PlayerStatsTable from './PlayerStatsTable';
+import logo from './assets/basketball.png';
 
 const App = () => {
   const [playerName, setPlayerName] = useState('');
@@ -67,20 +68,15 @@ const App = () => {
     }
 
     setLoading(false);
-};
+  };
 
   return (
     <div className='background-container'>
       <div className="App">
         <nav className="navbar">
           <div className="left-side">
+            <img src={logo} alt="Logo" className="logo" />
             <span className="website-name">NBA Fantasy Helper</span>
-          </div>
-          <div className="right-side">
-            <a href="#" className="nav-link">Home</a>
-            <a href="#" className="nav-link">About</a>
-            <a href="#" className="nav-link">Contact</a>
-            <a href="#" className="nav-link">Portfolio</a>
           </div>
         </nav>
         <div className='nba-helper-box'>
@@ -96,7 +92,7 @@ const App = () => {
 
           {loading && <p>Loading...</p>}
 
-          {playerStats && ( <PlayerStatsTable playerName={playerName} playerStats={playerStats} onSave={handleSaveRow} />
+          {playerStats && (<PlayerStatsTable playerName={playerName} playerStats={playerStats} onSave={handleSaveRow} />
           )}
         </div>
       </div>

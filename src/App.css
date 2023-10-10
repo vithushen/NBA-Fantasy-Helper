@@ -1,165 +1,242 @@
 .background-container {
   background: linear-gradient(to bottom, orange, white);
+  background-repeat: repeat-y;
   height: 100vh;
 }
 
 .App {
-    text-align: center;
-  }
+  text-align: center;
+}
 
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.3); /* Transparent background color */
-    padding: 10px 20px;
-  }
-  
-  .left-side {
-    display: flex;
-    align-items: center;
-    font-size: 40px;
-    color:white;
-    font-family: 'Young Serif', serif;
-  }
-  
-  .right-side .nav-link {
-    font-size: 20px;
-    margin-left: 20px;
-    margin-right: 50px; /* Add a right margin for spacing */
-    color: #fff; /* Text color for links */
-    text-decoration: none;
-    font-family: 'Young Serif', serif;
-  }
-  
-  input {
-    padding: 10px;
-    margin: 10px;
-  }
-  
-  .nba-helper-box {
-    margin-top: 100px;
-  } 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  /* Transparent background color */
+  padding: 10px 20px;
+}
 
-  .nba-button {
-    position: relative;
-    overflow: hidden;
-    padding: 10px 30px;
-    cursor: pointer;
-    font-family: 'Young Serif', serif;
-    background-color: orange !important;
-    border-radius: 10px;
-    font-size: 14px;
-    border: none;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease; 
-  }
-  
-  .nba-button::before {
-    content: "";
-    position: absolute;
-    background: radial-gradient(circle, rgba(255, 165, 0, 0.5) 0%, transparent 70%);
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    opacity: 0;
-    transform: scale(1);
-    z-index: -1;
-    transition: all 0.3s ease;
-  }
-  
-  .nba-button:hover::before {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-  
-  /* Styles for the active state (when the button is clicked) */
-  .nba-button:active {
-    outline: 2px solid #ffcc00; 
-  }
-  
+.left-side {
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  color: white;
+  font-family: 'Young Serif', serif;
+}
 
-  .input{
-    border-radius: 10px;
-    height: 25px;
-    width: 250px;
-    border: none;
-  }
+.logo {
+  height: 100px;
+}
+
+.right-side .nav-link {
+  font-size: 20px;
+  margin-left: 20px;
+  margin-right: 50px;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Young Serif', serif;
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+}
+
+.nba-helper-box {
+  margin-top: 100px;
+}
+
+.nba-button {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 30px;
+  cursor: pointer;
+  font-family: 'Young Serif', serif;
+  background-color: orange !important;
+  border-radius: 10px;
+  font-size: 14px;
+  border: none;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.nba-button::before {
+  content: "";
+  position: absolute;
+  background: radial-gradient(circle, rgba(255, 165, 0, 0.5) 0%, transparent 70%);
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  opacity: 0;
+  transform: scale(1);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.nba-button:hover::before {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.nba-button:active {
+  outline: 2px solid #ffcc00;
+}
 
 
-  .player-stats-table {
-    text-align: center;
-    margin: 0 auto;
-    padding: 20px;
-    width: 1500px;
-    margin-top: 30px;
-  }
-  
-  .player-stats-table h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .player-stats-table h2 {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    padding: 10px;
-    border: 1px solid orange;
-  }
-  
-  th {
-    background-color: orange;
-  }
-  
+.input {
+  border-radius: 10px;
+  height: 25px;
+  width: 250px;
+  border: none;
+}
 
-  tr:hover {
-    background-color:rgb(255, 157, 0);
-  } 
 
-  .row1 {
-    width:200px
-  } 
+.player-stats-table {
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  width: 1500px;
+  margin-top: 30px;
+}
 
-  .saveButton{
-    background-color: rgb(21, 248, 21);
-    border-radius: 5px;
-    font-size: 15px;
-    border-color: rgb(0, 55, 0);
-    width: 75px;
-    height: 30px;
-    cursor: pointer;
-  }
+.player-stats-table h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
 
-  .deleteButton{
-    background-color: rgb(255, 16, 16);
-    border-color: rgb(129, 0, 0);
-    border-radius: 5px;
-    font-size: 15px;
-    width: 75px;
-    height: 30px;
-    cursor: pointer;
-  } 
+.player-stats-table h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
 
-  .greenCell {
-    background-color: green; /* Set the background color for games played over 70 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid orange;
+}
+
+th {
+  background-color: orange;
+}
+
+
+tr:hover {
+  background-color: rgb(255, 157, 0);
+}
+
+.row1 {
+  width: 200px
+}
+
+.saveButton {
+  background-color: rgb(21, 248, 21);
+  border-radius: 5px;
+  font-size: 15px;
+  border-color: rgb(0, 55, 0);
+  width: 75px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.deleteButton {
+  background-color: rgb(255, 16, 16);
+  border-color: rgb(129, 0, 0);
+  border-radius: 5px;
+  font-size: 15px;
+  width: 75px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.greenCell {
+  background-color: green;
 }
 
 .yellowCell {
-    background-color: yellow; /* Set the background color for games played between 40 and 70 */
+  background-color: yellow;
 }
 
 .redCell {
-    background-color: red; /* Set the background color for games played below 40 */
+  background-color: red;
 }
 
-.secondTable{
+.secondTable {
   margin-top: 50px;
+}
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .left-side {
+    font-size: 30px;
+  }
+
+  .right-side .nav-link {
+    font-size: 18px;
+    margin-left: 10px;
+    margin-right: 20px;
+  }
+
+  .nba-helper-box {
+    margin-top: 50px;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .player-stats-table {
+    width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 480px) {
+
+  .left-side {
+    font-size: 24px;
+  }
+
+  .right-side .nav-link {
+    font-size: 16px;
+    margin-left: 5px;
+    margin-right: 10px;
+  }
+
+  .nba-helper-box {
+    margin-top: 30px;
+  }
+
+  .input {
+    width: calc(90% - 20px);
+  }
+
+  .player-stats-table {
+    width: 350px;
+    overflow-x: auto;
+    margin-left: -5px;
+    margin-bottom: 50px;
+  }
+
+  th,
+  td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .saveButton,
+  .deleteButton {
+    width: 60px;
+    font-size: 12px;
+  }
 }
