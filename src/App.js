@@ -17,6 +17,15 @@ const App = () => {
     setPlayerName(event.target.value);
   };
 
+  // Dropdown Menu 
+  const [selectedYear, setSelectedYear] = useState(2022); 
+
+  const handleYearChange = (event) => {
+    const selectedYear = parseInt(event.target.value, 10);
+    setSelectedYear(selectedYear);
+  };
+
+  // Player Data 
   const fetchPlayerStats = async () => {
     // Validate playerName before making the API call
     if (!playerName) {
@@ -44,8 +53,8 @@ const App = () => {
       const { first_name, last_name } = playerDetailsData;
       const teamAbbreviation = playerDetailsData.team.abbreviation;
 
-      // Define the season (for example, 2022) and player_ids array
-      const season = 2022;
+      // Define the season and player_ids array
+      const season = selectedYear;;
       const playerIds = [playerId];
 
       // Fetch player season averages using the season and player_ids parameters
@@ -56,7 +65,7 @@ const App = () => {
         console.log('Player Stats Data:', data.data); // Log the player stats data array
         if (data.data.length > 0) {
           const playerStatsData = data.data[0];
-          setPlayerStats({ ...playerStatsData, firstName: first_name, lastName: last_name, teamAbbreviation });
+          setPlayerStats({ ...playerStatsData, firstName: first_name, lastName: last_name, teamAbbreviation, season: selectedYear });
         } else {
           console.error('Player stats not available for the selected player in the specified season.');
         }
@@ -88,13 +97,30 @@ const App = () => {
             value={playerName}
             onChange={handleInputChange}
           />
+
+          <select className='dropdown' onChange={handleYearChange} value={selectedYear}>
+            {Array.from({ length: 13 }, (_, index) => 2010 + index).map((startYear) => {
+              const endYear = startYear + 1;
+              const academicYear = `${startYear}-${endYear}`;
+              return (
+                <option key={academicYear} value={startYear}>
+                  {academicYear}
+                </option>
+              );
+            })}
+          </select>
+
           <button className='button nba-button' onClick={fetchPlayerStats}>Get Stats</button>
 
           {loading && <p>Loading...</p>}
 
-          {playerStats && (<PlayerStatsTable playerName={playerName} playerStats={playerStats} onSave={handleSaveRow} />
+          {playerStats && (<PlayerStatsTable playerName={playerName} playerStats={playerStats} selectedYear={selectedYear} onSave={handleSaveRow} />
           )}
+
         </div>
+
+
+
       </div>
     </div>
   );

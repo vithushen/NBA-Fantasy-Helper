@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const PlayerStatsTable = ({ playerName, playerStats }) => {
+const PlayerStatsTable = ({playerStats, selectedYear }) => {
     const statsHeaders = [
         'Player',
         'Games Played',
@@ -21,10 +21,10 @@ const PlayerStatsTable = ({ playerName, playerStats }) => {
 
     const handleSave = () => {
         const playerIdentity = `${playerStats.firstName} ${playerStats.lastName}`; // Assuming firstName and lastName together form a unique identifier
-        
+
         // Check if the player is already in the savedRows array
         const isPlayerAlreadySaved = savedRows.some(row => `${row.firstName} ${row.lastName}` === playerIdentity);
-        
+
         if (!isPlayerAlreadySaved) {
             const newRow = { ...playerStats }; // Save all playerStats data
             setSavedRows([...savedRows, newRow]);
@@ -155,7 +155,9 @@ const PlayerStatsTable = ({ playerName, playerStats }) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td className='row1'>{playerStats.firstName} {playerStats.lastName} ({playerStats.teamAbbreviation})</td>
+                        <td className='row1'>
+                            {playerStats.firstName} {playerStats.lastName} ({playerStats.teamAbbreviation}) <br />
+                        </td>
                         <td className={getGamesPlayedColorClass(playerStats.games_played)}>{playerStats.games_played}</td>
                         <td className={getFGColorClass(playerStats.fg_pct)}>{playerStats.fg_pct}</td>
                         <td className={getFTColorClass(playerStats.ft_pct)}>{playerStats.ft_pct}</td>
@@ -173,7 +175,7 @@ const PlayerStatsTable = ({ playerName, playerStats }) => {
 
             {savedRows.length >= 1 && (
                 <div className='secondTable'>
-                    <h1 style={{fontSize:'40px', paddingBottom:'25px'}}>Saved Players</h1>
+                    <h1 classname='savedplayer' style={{ fontSize: '40px', paddingBottom: '25px' }}>Saved Players</h1>
                     <table>
                         <thead>
                             <tr>
@@ -185,7 +187,9 @@ const PlayerStatsTable = ({ playerName, playerStats }) => {
                         <tbody>
                             {savedRows.map((row, index) => (
                                 <tr key={index}>
-                                    <td className='row1'>{row.firstName} {row.lastName} ({row.teamAbbreviation})</td>
+                                    <td className='row1'>
+                                        {playerStats.firstName} {playerStats.lastName} ({playerStats.teamAbbreviation})
+                                    </td>
                                     <td className={getGamesPlayedColorClass(row.games_played)}>{row.games_played}</td>
                                     <td className={getFGColorClass(row.fg_pct)}>{row.fg_pct}</td>
                                     <td className={getFTColorClass(row.ft_pct)}>{row.ft_pct}</td>
