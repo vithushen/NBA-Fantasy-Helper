@@ -16,6 +16,12 @@ const App = () => {
   const handleInputChange = (event) => {
     setPlayerName(event.target.value);
   };
+  
+  const handleInputKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      fetchPlayerStats();
+    }
+  };
 
   // Dropdown Menu 
   const [selectedYear, setSelectedYear] = useState(2022); 
@@ -96,6 +102,7 @@ const App = () => {
             placeholder="Enter player's name"
             value={playerName}
             onChange={handleInputChange}
+            onKeyPress={handleInputKeyPress}
           />
 
           <select className='dropdown' onChange={handleYearChange} value={selectedYear}>
